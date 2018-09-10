@@ -10,3 +10,5 @@ Install as `pip install selenium`
      `python any_image.py travel+photos 10000`
      travel+photos is equivalent to typing "travel photos" in google images search box, so for spaces put a + and 10000 depicts the no. of      images you want to scrape.
      Now in that same directory, you will see a folder `datasets` inside which you will see a folder with the name of search text that you      put in. In my case the folder name will be `travel+photos`.
+
+References: https://github.com/harshitsidhwa/WhatsApp-bot-selenium and https://github.com/atif93/google_image_downloader

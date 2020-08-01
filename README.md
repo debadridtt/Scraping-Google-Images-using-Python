@@ -8,6 +8,7 @@ Install as `pip install selenium`
 4) Place your `chromedriver.exe` and `google_image_scraping_script.py` file in the same folder
 
 Line 89 change the query you want to search: `Manchester City` in my case
+
 Line 94 `links = fetch_image_urls(query,50,wd)`, 50 denotes no. of images you want to download
    > Open your terminal (`cmd` in Windows), change your directory to your Python file location and execute the following query:
      `python google_image_scraping_script.py`

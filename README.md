@@ -15,5 +15,7 @@ Line 104 `links = fetch_image_urls(query,500,wd)`, 500 denotes no. of images you
    > Open your terminal (`cmd` in Windows), change your directory to your Python file location and execute the following query:
      `python google_image_scraping_script.py`
      Now in that same directory, you will see a folder `datasets` inside which you will see a folder for each name of search text that you put in. In my case the folder names will be the list of queries that I have passed.
-    
+
+It is recommended to keep your machine idle while the scraping script is running end-to-end.
+
 References: https://medium.com/@wwwanandsuresh/web-scraping-images-from-google-9084545808a2

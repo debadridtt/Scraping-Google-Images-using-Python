@@ -10,9 +10,9 @@ Install as `pip install selenium`
 
 The `error_clicks` parameter is to stop when there are no more results to show and end of the page is reached in Google Images search.
 
-Line 99 change the queries you want to search: `queries = ["Manchester City", "Manchester United", 'Barcelona', 'Real Madrid']` in my case
+Line 105 change the queries you want to search: `queries = ["Manchester City", "Manchester United", 'Barcelona', 'Real Madrid']` in my case
 
-Line 104 `links = fetch_image_urls(query,500,wd)`, 500 denotes no. of images you want to download
+Line 110 `links = fetch_image_urls(query,500,wd)`, 500 denotes no. of images you want to download
    > Open your terminal (`cmd` in Windows) execute the following query:
      `python google_image_scraping_script.py`
      Now in that same directory, you will see a folder `datasets` inside which you will see a folder for each name of search text that you put in. In my case the folder names will be the list of queries that I have passed.

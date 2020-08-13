@@ -47,7 +47,12 @@ def fetch_image_urls(query:str, max_links_to_fetch:int, wd:webdriver, sleep_betw
             except Exception:
                 error_clicks = error_clicks + 1
                 print('ERROR: Unable to Click the Image')
-                break
+                if(results_start < number_results):
+                	continue
+                else:
+                	break
+                	
+            results_start = results_start + 1
 
             # extract image urls    
             print('Extracting of Image URLs')

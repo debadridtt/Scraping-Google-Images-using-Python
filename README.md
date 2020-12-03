@@ -12,7 +12,10 @@ The `error_clicks` parameter is to stop when there are no more results to show a
 
 Line 105 change the queries you want to search: `queries = ["Manchester City", "Manchester United", 'Barcelona', 'Real Madrid']` in my case
 
-Line 110 `links = fetch_image_urls(query,500,wd)`, 500 denotes no. of images you want to download
+Line 110 `links = fetch_image_urls(query,200,wd)`, 200 denotes no. of images you want to download 
+
+**Note:** The ideal range is 200-250 the script runs fine if the range is within these numbers
+
    > Open your terminal (`cmd` in Windows) execute the following query:
      `python google_image_scraping_script.py`
      Now in that same directory, you will see a folder `datasets` inside which you will see a folder for each name of search text that you put in. In my case the folder names will be the list of queries that I have passed.
@@ -20,3 +23,4 @@ Line 110 `links = fetch_image_urls(query,500,wd)`, 500 denotes no. of images you
 It is recommended to keep your machine idle while the scraping script is running end-to-end.
 
 References: https://medium.com/@wwwanandsuresh/web-scraping-images-from-google-9084545808a2
+

@@ -14,7 +14,7 @@ Line 105 change the queries you want to search: `queries = ["Manchester City", "
 
 Line 110 `links = fetch_image_urls(query,200,wd)`, 200 denotes no. of images you want to download 
 
-**Note:** The ideal range is 200-250 the script runs fine if the range is within these numbers
+**Note:** The ideal range is 200-250 the script runs fine if the range is within these numbers. Also the script is more stable if one query is being passed rather than passing a list of queries at once
 
    > Open your terminal (`cmd` in Windows) execute the following query:
      `python google_image_scraping_script.py`

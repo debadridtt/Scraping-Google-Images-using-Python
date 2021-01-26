@@ -6,7 +6,7 @@ Install as `pip install selenium`
 2) [Python 3+](https://www.python.org/download/releases/3.0/?) - Pyhton 3.6+ verion
 3) Download `chromedriver.exe`
 4) Place your `chromedriver.exe` and `google_image_scraping_script.py` file in the same folder
-5) Open your terminal (Command Prompt for Windows) from that location and execute the script by typing `python googe_image_scraping_script.py`
+5) Open your terminal (Command Prompt for Windows) from that location and execute the script by typing `python google_image_scraping_script.py`
 
 The `error_clicks` parameter is to stop when there are no more results to show and end of the page is reached in Google Images search.
 

@@ -6,10 +6,10 @@ import os
 from PIL import Image
 import io
 import hashlib
+from webdriver_manager.chrome import ChromeDriverManager
 
 # All in same directory
 DRIVER_PATH = 'chromedriver.exe'
-
 
 def fetch_image_urls(query:str, max_links_to_fetch:int, wd:webdriver, sleep_between_interactions:int=1):
     def scroll_to_end(wd):
@@ -100,13 +100,14 @@ def persist_image(folder_path:str,file_name:str,url:str):
         print(f"ERROR - Could not save {url} - {e}")
 
 if __name__ == '__main__':
-    wd = webdriver.Chrome(executable_path=DRIVER_PATH)
-    queries = ["Manchester City", "Manchester United", 'Barcelona', 'Real Madrid']  #change your set of queries here
+    wd = webdriver.Chrome(ChromeDriverManager().install())
+    queries = ["Mountains", "Hill station", 'Snow capped mountain peaks', 'Hills and mountains']  #change your set of queries here
     for query in queries:
         wd.get('https://google.com')
         search_box = wd.find_element_by_css_selector('input.gLFyf')
+        # search_box = wd.find_element_by_css_selector('input.gLFyf')
         search_box.send_keys(query)
-        links = fetch_image_urls(query,200,wd) # 200 denotes no. of images you want to download
+        links = fetch_image_urls(query,700,wd) # 200 denotes no. of images you want to download
         images_path = 'dataset/'
         for i in links:
             persist_image(images_path,query,i)

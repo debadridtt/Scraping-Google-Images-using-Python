@@ -101,7 +101,7 @@ def persist_image(folder_path:str,file_name:str,url:str):
 
 if __name__ == '__main__':
     wd = webdriver.Chrome(ChromeDriverManager().install())
-    queries = ["Mountains", "Hill station", 'Snow capped mountain peaks', 'Hills and mountains']  #change your set of queries here
+    queries = ["Manchester City", "Manchester United", 'Barcelona', 'Real Madrid']  #change your set of queries here
     for query in queries:
         wd.get('https://google.com')
         search_box = wd.find_element_by_css_selector('input.gLFyf')

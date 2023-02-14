@@ -7,6 +7,8 @@ from PIL import Image
 import io
 import hashlib
 from webdriver_manager.chrome import ChromeDriverManager
+from datetime import datetime
+import timeout_decorator
 
 # All in same directory
 DRIVER_PATH = 'chromedriver.exe'
@@ -77,27 +79,31 @@ def fetch_image_urls(query:str, max_links_to_fetch:int, wd:webdriver, sleep_betw
 
     return image_urls
 
+@timeout_decorator.timeout(60) # if taking more than 1 minute then timeout
 def persist_image(folder_path:str,file_name:str,url:str):
     try:
-        image_content = requests.get(url).content
+        try:
+            image_content = requests.get(url).content
 
-    except Exception as e:
-        print(f"ERROR - Could not download {url} - {e}")
+        except Exception as e:
+            print(f"ERROR - Could not download {url} - {e}")
 
-    try:
-        image_file = io.BytesIO(image_content)
-        image = Image.open(image_file).convert('RGB')
-        folder_path = os.path.join(folder_path,file_name)
-        if os.path.exists(folder_path):
-            file_path = os.path.join(folder_path,hashlib.sha1(image_content).hexdigest()[:10] + '.jpg')
-        else:
-            os.mkdir(folder_path)
-            file_path = os.path.join(folder_path,hashlib.sha1(image_content).hexdigest()[:10] + '.jpg')
-        with open(file_path, 'wb') as f:
-            image.save(f, "JPEG", quality=85)
-        print(f"SUCCESS - saved {url} - as {file_path}")
-    except Exception as e:
-        print(f"ERROR - Could not save {url} - {e}")
+        try:
+            image_file = io.BytesIO(image_content)
+            image = Image.open(image_file).convert('RGB')
+            folder_path = os.path.join(folder_path,file_name)
+            if os.path.exists(folder_path):
+                file_path = os.path.join(folder_path,hashlib.sha1(image_content).hexdigest()[:10] + '.jpg')
+            else:
+                os.mkdir(folder_path)
+                file_path = os.path.join(folder_path,hashlib.sha1(image_content).hexdigest()[:10] + '.jpg')
+            with open(file_path, 'wb') as f:
+                image.save(f, "JPEG", quality=85)
+            print(f"SUCCESS - saved {url} - as {file_path}")
+        except Exception as e:
+            print(f"ERROR - Could not save {url} - {e}")
+    except TimeoutError:
+        print('Timeout!')
 
 if __name__ == '__main__':
     wd = webdriver.Chrome(ChromeDriverManager().install())
@@ -107,7 +113,7 @@ if __name__ == '__main__':
         search_box = wd.find_element_by_css_selector('input.gLFyf')
         # search_box = wd.find_element_by_css_selector('input.gLFyf')
         search_box.send_keys(query)
-        links = fetch_image_urls(query,700,wd) # 200 denotes no. of images you want to download
+        links = fetch_image_urls(query,500,wd) # 200 denotes no. of images you want to download
         images_path = 'dataset/'
         for i in links:
             persist_image(images_path,query,i)

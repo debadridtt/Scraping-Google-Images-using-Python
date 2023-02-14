@@ -1,0 +1,6 @@
+selenium==2.33.0
+requests==2.22.0
+Pillow==7.0.0
+webdriver-manager==2.33.0
+timeout_decorator==0.5.0
+

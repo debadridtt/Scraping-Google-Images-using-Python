@@ -3,7 +3,7 @@ Now  scrape as many images as you want, from google images using Python, Chromed
 
 **Dependencies needed**
 1) `Selenium`
-Install as `pip install selenium==2.33`
+Install as `pip install -U -r requirements.txt`
 2) [Python 3+](https://www.python.org/download/releases/3.0/?) - Pyhton 3.6+ verion
 3) Paste the script inside a folder, open your terminal (Command Prompt for Windows) from that location and execute the script by typing `python googe_image_scraping_script.py`
 
@@ -11,13 +11,11 @@ The `error_clicks` parameter is to stop when there are no more results to show a
 
 Line 105 change the queries you want to search: `queries = ["Manchester City", "Manchester United", 'Barcelona', 'Real Madrid']` in my case
 
-Line 110 `links = fetch_image_urls(query,200,wd)`, 200 denotes no. of images you want to download 
+Line 110 `links = fetch_image_urls(query,500,wd)`, 500 denotes no. of images you want to download 
 
    > Open your terminal (`cmd` in Windows) execute the following query:
      `python google_image_scraping_script.py`
      Now in that same directory, you will see a folder `datasets` inside which you will see a folder for each name of search text that you put in. In my case the folder names will be the list of queries that I have passed.
-
-It is recommended to keep your machine idle while the scraping script is running end-to-end.
 
 References: https://medium.com/@wwwanandsuresh/web-scraping-images-from-google-9084545808a2
 

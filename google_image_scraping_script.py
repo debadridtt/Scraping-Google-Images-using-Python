@@ -113,7 +113,7 @@ if __name__ == '__main__':
         search_box = wd.find_element_by_css_selector('input.gLFyf')
         # search_box = wd.find_element_by_css_selector('input.gLFyf')
         search_box.send_keys(query)
-        links = fetch_image_urls(query,500,wd) # 200 denotes no. of images you want to download
+        links = fetch_image_urls(query,500,wd) # 500 denotes no. of images you want to download
         images_path = 'dataset/'
         for i in links:
             persist_image(images_path,query,i)

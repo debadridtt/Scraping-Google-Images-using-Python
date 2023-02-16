@@ -9,6 +9,8 @@ Install as `pip install -U -r requirements.txt`
 
 The `error_clicks` parameter is to stop when there are no more results to show and end of the page is reached in Google Images search.
 
+Line 82 is the timeout, which is set to 60 seconds. Sometimes while scraping the loop gets stuck forever when downloading an image, so the timer will resolve that issue and skip to next image automatically
+
 Line 105 change the queries you want to search: `queries = ["Manchester City", "Manchester United", 'Barcelona', 'Real Madrid']` in my case
 
 Line 110 `links = fetch_image_urls(query,500,wd)`, 500 denotes no. of images you want to download 
